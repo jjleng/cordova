@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Greetings</title>
     <link rel="stylesheet" href="resources/css/app.css" type="text/css"/>
+    <!-- <script src="http://192.168.1.104:8080/target/target-script-min.js#anonymous"></script> -->
     <script type="text/javascript" src="cordova-1.8.1.js"></script>
     <script type="text/javascript" src="sdk/sencha-touch.js"></script>
     <!-- cordova facebook plugin -->
   	<script src="cdv-plugin-fb-connect.js"></script>
     <!-- facebook js sdk -->
-  	<script src="facebook_js_sdk.js"></script>
-    <script type="text/javascript" src="classes-all.js"></script>
+  	<script src="facebook_js_sdk.js"></script>    
     <script type="text/javascript" src="app.js"></script>
 </head>
 <body id="greetings-body">

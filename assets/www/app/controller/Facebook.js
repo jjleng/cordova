@@ -53,9 +53,9 @@ Ext.define('Greetings.controller.Facebook', {
 
         var me = this;
 
-console.log(Greetings.app.facebookAppId);
+		console.log(Greetings.app.facebookAppId);
         FB.init({
-            appId:Greetings.app.facebookAppId,
+            appId:"176888355774566",
             nativeInterface: CDV.FB, 
             useCachedDialogs: false
         });
@@ -69,6 +69,14 @@ console.log(Greetings.app.facebookAppId);
 		  }
 		  else if (session === undefined) {
 		    console.log('in branch 2');
+		    FB.login(function (response) {
+	            if (response.authResponse) {
+			     var access_token =   FB.getAuthResponse()['accessToken'];
+			     console.log('Access Token = '+ access_token);			    
+			   } else {
+			     console.log('User cancelled login or did not fully authorize.');
+			   }
+        	}, {scope:'read_friendlists,user_relationships,friends_birthday,friends_location,friends_interests,friends_likes'});
 		  }
 		  else if (session && (session.status == 'not_authorized' || session.status == 'notConnected')) {
 		    console.log('in branch 3');
@@ -76,7 +84,7 @@ console.log(Greetings.app.facebookAppId);
 		});
 
         FB.Event.subscribe('auth.logout', Ext.bind(me.onLogout, me));
-
+/*
         FB.getLoginStatus(function (response) {
         
         console.log("FB.getLoginStatus");
@@ -95,7 +103,9 @@ console.log(Greetings.app.facebookAppId);
                 me.login();
             }
         });
+        */
 
+/*
 		console.log("before settimeout");
         me.fbLoginTimeout = setTimeout(function () {
         
@@ -113,7 +123,7 @@ console.log(Greetings.app.facebookAppId);
                 ].join('')
             }).show();
 
-        }, 10000);
+        }, 10000);*/
     },
 
     login:function () {
